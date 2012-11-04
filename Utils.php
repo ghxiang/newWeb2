@@ -3,7 +3,7 @@ function request_by_socket($remote_server,$remote_path,$post_string,$port = 80,$
 $socket = fsockopen($remote_server,$port,$errno,$errstr,$timeout);
 if (!$socket) die("$errstr($errno)");
 
-echo "Start to post the request\r\n\r\n";
+//echo "Start to post the request\r\n\r\n";
 fwrite($socket,"POST $remote_path HTTP/1.0\r\n");
 //fwrite($socket,"User-Agent: Socket Example\r\n");
 fwrite($socket,"HOST: $remote_server\r\n");
@@ -19,7 +19,7 @@ while ($str = trim(fgets($socket,4096))) {
 $header.=$str;
 }
 
-echo "Header is: \r\n".$header;
+//echo "Header is: \r\n".$header;
 
 $data = "";
 while (!feof($socket)) {
